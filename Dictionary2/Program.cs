@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dictionary2
+namespace Dictionary1
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Dictionary2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Dictionary1());
         }
     }
 }
