@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace intParseTest1
+namespace Dictionary2
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int byteData = int.Parse(textBox1.Text, System.Globalization.NumberStyles.HexNumber);
-            Console.WriteLine("byteData:{0}",byteData);
         }
     }
 }

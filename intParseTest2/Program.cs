@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace intParseTest2
+namespace intParseTest1
 {
-    static class intParseTest2
+    static class Program
     {
         /// <summary>
         /// 應用程式的主要進入點。
