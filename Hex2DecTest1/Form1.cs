@@ -16,5 +16,25 @@ namespace Hex2DecTest
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string _result;
+            _result = HextoDecimal(tbHex.Text);
+            listBox1.Items.Add(_result);
+        }
+
+        private string HextoDecimal(string number)
+        {
+            try
+            {
+                return Convert.ToInt32(number, 16).ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("no data");
+            }
+            return "";
+        }
     }
 }
