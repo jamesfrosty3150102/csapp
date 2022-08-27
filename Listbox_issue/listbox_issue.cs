@@ -14,6 +14,11 @@ namespace Winform0827
 {
     public partial class listbox_issue : Form
     {
+        //Task 參數
+        bool g_cycleTaskStart = false;
+        bool g_cycleTestFlag = false;
+        int g_cycleTestCount = 0;
+
         public listbox_issue()
         {
             InitializeComponent();
@@ -21,7 +26,12 @@ namespace Winform0827
 
         private void button1_Click(object sender, EventArgs e)
         {
-            readingTask();
+            if (!g_cycleTaskStart)
+            {
+                Task _taskRun = new Task(readingTask);
+                _taskRun.Start();
+                g_cycleTaskStart = true;         
+            }
         }
 
         private void readingTask()
