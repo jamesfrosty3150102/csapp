@@ -21,7 +21,12 @@ namespace Winform0827
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamReader _reader = new StreamReader(Application.StartupPath + "\\" + "data.csv");
+            readingTask();
+        }
+
+        private void readingTask()
+        { 
+            StreamReader _reader = new StreamReader(Application.StartupPath + "\\" + @"data.csv");
             string _line = _reader.ReadLine();
             string[] _tempArray = null;
             int _count = 0;
@@ -29,8 +34,10 @@ namespace Winform0827
             {
                 _tempArray = _reader.ReadLine().Split(',');
                 Console.WriteLine(_tempArray[0]);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(_tempArray[0])));
+                //listBox1.Items.Add(_tempArray[0]);
                 _count++;
-            }
+            }        
         }
     }
 }
