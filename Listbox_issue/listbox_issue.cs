@@ -52,6 +52,7 @@ namespace Winform0827
         #region button1
         private void button1_Click(object sender, EventArgs e)
         {
+            _bw.RunWorkerAsync(g_sbsCount);
             if (!g_cycleTaskStart)
             {
                 Task _taskRun = new Task(readingTask);
