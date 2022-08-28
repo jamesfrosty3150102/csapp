@@ -49,15 +49,28 @@ namespace Winform0827
         }
         #endregion
 
+        struct DataParameter
+        {
+            public int Process;
+            public int Delay;
+        }
+
+        private DataParameter _inputParameter;
         #region button1
         private void button1_Click(object sender, EventArgs e)
         {
-            _bw.RunWorkerAsync(g_sbsCount);
+
             if (!g_cycleTaskStart)
             {
                 Task _taskRun = new Task(readingTask);
                 _taskRun.Start();
                 g_cycleTaskStart = true;
+            }
+            if (!_bw.IsBusy)
+            {
+                _inputParameter.Delay = 100;
+                _inputParameter.Process = 1200;
+                _bw.RunWorkerAsync(_inputParameter);
             }
         }
         #endregion
@@ -81,6 +94,7 @@ namespace Winform0827
 
 
         #region Backgroundworker
+
         private void BGW()
         {
             ckBGW.Checked = true;
@@ -100,7 +114,26 @@ namespace Winform0827
 
         private void _bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
+            //BackgroundWorker worker = sender as BackgroundWorker;
+            int process = ((DataParameter)e.Argument).Process;
+            int delay = ((DataParameter)e.Argument).Delay;
+            int index = 1;
+            try
+            {
+                for (int i=0;i<process;i++)
+                {
+                    if (!_bw.CancellationPending)
+                    {
+                        _bw.ReportProgress(index++ * 100 / process, string.Format("Process data(0)", i));
+                        System.Threading.Thread.Sleep(delay);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+#if debug
             if (this.progressBar1.Value == 0)
             {
                 for (int i = 1; i <= 10; i++)
@@ -120,6 +153,7 @@ namespace Winform0827
                     //label1.Text = Convert.ToString(this.progressBar1.Value)+ "%";
                 }
             }
+#endif
             Console.WriteLine("this.progressBar1.Value:{0}", this.progressBar1.Value);
         }
 
@@ -127,6 +161,8 @@ namespace Winform0827
         {
             this.progressBar1.Value = e.ProgressPercentage;
             label1.Text = e.ProgressPercentage.ToString() +"%";
+            //Progress.update
+            //listBox1.Invoke(new Action(() => listBox1.Items.Add(e.ProgressPercentage.ToString() + "%"))); //Error
         }
 
         private void _bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
