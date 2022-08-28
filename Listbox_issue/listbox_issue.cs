@@ -126,6 +126,7 @@ namespace Winform0827
         private void _bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.progressBar1.Value = e.ProgressPercentage;
+            label1.Text = e.ProgressPercentage.ToString() +"%";
         }
 
         private void _bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
