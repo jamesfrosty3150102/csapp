@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BackgroundworkerTest3
+namespace backgroundworkerProtytype
 {
-    static class BackgroundworkerTest3
+    internal static class Program
     {
         /// <summary>
         /// 應用程式的主要進入點。
