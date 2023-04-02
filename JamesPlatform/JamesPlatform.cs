@@ -25,7 +25,7 @@ namespace JamesPlatform
 
         private void btnPatch_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Patch");
         }
     }
 }
