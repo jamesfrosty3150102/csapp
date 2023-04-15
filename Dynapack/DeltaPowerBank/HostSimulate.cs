@@ -48,12 +48,97 @@ namespace HostSimulate
             //_txFrame = new byte[] { 0x52,0x61,0xFD,0x38 };
             do
             {
-                 _txFrame = g_cmd0x61;
-                 _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
-                 if (_result)
-                 {
-                      Console.WriteLine("_txFrame:g_cmd0x61{0}", g_cmd0x61);
-                 }
+
+                for (int i = 0; i < 11; i++)
+                {
+                    switch (i+1)
+                    {
+                        case 1:
+                            _txFrame = g_cmd0x61;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine(BitConverter.ToString(g_cmd0x61));
+                                //foreach (byte _data in g_cmd0x61)
+                                //{
+                                //    Console.WriteLine(_data.ToString("X"));
+                                //}
+                            }
+                            break;
+                        case 2:
+                            _txFrame = g_cmd0x62;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x62:{0}", g_cmd0x62);
+                            }
+                            break;
+                        case 3:
+                            _txFrame = g_cmd0x63;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x63:{0}", g_cmd0x63);
+                            }
+                            break;
+                        case 4:
+                            _txFrame = g_cmd0x64;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x64:{0}", g_cmd0x64);
+                            }
+                            break;
+                        case 5:
+                            _txFrame = g_cmd0x65;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x65:{0}", g_cmd0x65);
+                            }
+                            break;
+                        case 6:
+                            _txFrame = g_cmd0x66;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x66:{0}", g_cmd0x66);
+                            }
+                            break;
+                        case 7:
+                            _txFrame = g_cmd0x67;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x67:{0}", g_cmd0x67);
+                            }
+                            break;
+                        case 8:
+                            _txFrame = g_cmd0x68;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x68:{0}", g_cmd0x68);
+                            }
+                            break;
+                        case 9:
+                            _txFrame = g_cmd0x69;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x69:{0}", g_cmd0x69);
+                            }
+                            break;
+                        case 10:
+                            _txFrame = g_cmd0x6A;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                Console.WriteLine("_txFrame:g_cmd0x6A:{0}", g_cmd0x6A);
+                            }
+                            break;
+                    }
+                }
             }
             while (true);
 
