@@ -34,6 +34,62 @@ namespace HostSimulate
             byte[] _txFrame = null;
             string errorMessage = "";
 
+            byte[] g_cmd0x01 = new byte[] { 0x52, 0x01, 0xFD, 0x38 };
+            byte[] g_cmd0x02 = new byte[] { 0x52, 0x02, 0xBD, 0x39 };
+            byte[] g_cmd0x03 = new byte[] { 0x52, 0x03, 0x7C, 0xF9 };
+            byte[] g_cmd0x04 = new byte[] { 0x52, 0x04, 0x3D, 0x3B };
+
+            do
+            {
+
+                for (int i = 0; i < 11; i++)
+                {
+                    switch (i + 1)
+                    {
+                        case 1:
+                            _txFrame = g_cmd0x01;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x01));
+                                Application.DoEvents();
+                            }
+                            break;
+                        case 2:
+                            _txFrame = g_cmd0x02;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x02));
+                                Application.DoEvents();
+                            }
+                            break;
+                        case 3:
+                            _txFrame = g_cmd0x03;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x03));
+                                Application.DoEvents();
+                            }
+                            break;
+                        case 4:
+                            _txFrame = g_cmd0x04;
+                            _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
+                            if (_result)
+                            {
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x04));
+                                Application.DoEvents();
+                            }
+                            break;
+
+                    }
+                }
+            }
+            while (true);
+
+
+#if debug
             byte[] g_cmd0x61 = new byte[] { 0x52, 0x61, 0xFD, 0x38 };
             byte[] g_cmd0x62 = new byte[] { 0x52, 0x62, 0xBD, 0x39 };
             byte[] g_cmd0x63 = new byte[] { 0x52, 0x63, 0x7C, 0xF9 };
@@ -44,8 +100,10 @@ namespace HostSimulate
             byte[] g_cmd0x68 = new byte[] { 0x52, 0x68, 0x3D, 0x3E };
             byte[] g_cmd0x69 = new byte[] { 0x52, 0x69, 0xFC, 0xFE };
             byte[] g_cmd0x6A = new byte[] { 0x52, 0x6A, 0xBC, 0xFF };
+#endif
 
             //_txFrame = new byte[] { 0x52,0x61,0xFD,0x38 };
+#if debug
             do
             {
 
@@ -58,11 +116,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine(BitConverter.ToString(g_cmd0x61));
-                                //foreach (byte _data in g_cmd0x61)
-                                //{
-                                //    Console.WriteLine(_data.ToString("X"));
-                                //}
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x61));
+                                Application.DoEvents();
                             }
                             break;
                         case 2:
@@ -70,7 +125,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x62:{0}", g_cmd0x62);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x62));
+                                Application.DoEvents();
                             }
                             break;
                         case 3:
@@ -78,7 +134,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x63:{0}", g_cmd0x63);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x63));
+                                Application.DoEvents();
                             }
                             break;
                         case 4:
@@ -86,7 +143,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x64:{0}", g_cmd0x64);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x64));
+                                Application.DoEvents();
                             }
                             break;
                         case 5:
@@ -94,7 +152,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x65:{0}", g_cmd0x65);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x65));
+                                Application.DoEvents();
                             }
                             break;
                         case 6:
@@ -102,7 +161,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x66:{0}", g_cmd0x66);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x66));
+                                Application.DoEvents();
                             }
                             break;
                         case 7:
@@ -110,7 +170,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x67:{0}", g_cmd0x67);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x67));
+                                Application.DoEvents();
                             }
                             break;
                         case 8:
@@ -118,7 +179,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x68:{0}", g_cmd0x68);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x68));
+                                Application.DoEvents();
                             }
                             break;
                         case 9:
@@ -126,7 +188,8 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x69:{0}", g_cmd0x69);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x69));
+                                Application.DoEvents();
                             }
                             break;
                         case 10:
@@ -134,14 +197,15 @@ namespace HostSimulate
                             _result = TransmitMessage(_moduelID + 0x0580, _txFrame, ref errorMessage);
                             if (_result)
                             {
-                                Console.WriteLine("_txFrame:g_cmd0x6A:{0}", g_cmd0x6A);
+                                listBox1.Items.Add(BitConverter.ToString(g_cmd0x6A));
+                                Application.DoEvents();
                             }
                             break;
                     }
                 }
             }
             while (true);
-
+#endif
         }
 
         private void InitialCANAdapter()
