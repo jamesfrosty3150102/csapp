@@ -1,0 +1,58 @@
+Name,SBS Address(hex),Length,Offset,Value,unit,type
+Temperature,61,2,16,26,Celsius,0.1K
+PackVoltage,61,2,18,48636,mV,uint
+Current_10mA,61,2,20,150,mA,I
+FCC,62,2,6,48636,mV,uint
+RSOC,62,2,0,100,%,uint
+ARSOC,62,2,2,100,%,unit
+RemainingCapacity,62,2,4,48636,mV,uint
+ManufacturerName,63,32,0,Dynapack,,S
+TMON_1,65,2,32,26,Celsius,0.1K
+TMON_2,65,2,30,26,Celsius,0.1K
+TMON_3,65,2,28,26,Celsius,0.1K
+TMON_4,65,2,26,26,Celsius,0.1K
+TMON_5,65,2,24,26,Celsius,0.1K
+AN0 Temperature ,65,2,20,26,Celsius,0.1K
+AN1 Temperature ,65,2,22,26,Celsius,0.1K
+Cell 16 Voltage,66,2,0,3700,mV,uint
+Cell 15 Voltage,66,2,2,3700,mV,uint
+Cell 14 Voltage,66,2,4,3700,mV,uint
+Cell 13 Voltage,66,2,6,3700,mV,uint
+Cell 12 Voltage,66,2,8,3700,mV,uint
+Cell 11 Voltage,66,2,10,3700,mV,uint
+Cell 10 Voltage,66,2,12,3700,mV,uint
+Cell 9 Voltage,66,2,14,3700,mV,uint
+Cell 8 Voltage,66,2,16,3700,mV,uint
+Cell 7 Voltage,66,2,18,3700,mV,uint
+Cell 6 Voltage,66,2,20,3700,mV,uint
+Cell 5 Voltage,66,2,22,3700,mV,uint
+Cell 4 Voltage,66,2,24,3700,mV,uint
+Cell 3 Voltage,66,2,26,3700,mV,uint
+Cell 2 Voltage,66,2,28,3700,mV,uint
+Cell 1 Voltage,66,2,30,3700,mV,uint
+FW Version,67,2,28,V1.0.0.1,,S
+PackStatus,67,2,24,0xFF,,H
+PFStatus,67,2,26,0xFF,,H
+SafetyStatus,67,2,0,0xFF,,H
+RunTimeToEmpty,62,2,8,0,sec,uint
+AverageTImeToEmpty,62,2,10,0,sec,uint
+AverageTImeToFull,62,2,12,0,sec,uint
+BatteryStatus,62,2,14,0xFF,,H
+CycleCount,62,2,16,0,,uint
+DesignCapacity,62,2,18,0,mV,uint
+DesignVoltage,62,2,20,0,mV,uint
+SpecInfo,62,2,22,0,,S
+ManufacturerDate,62,2,24,20210728,,S
+SerialNumber,62,2,26,0,,S
+ManufacturerName,63,2,32,Dynapack,,S
+DeviceName,64,2,32,DP-ESS,,S
+DeviceChemistry,65,2,4,0,,S
+ManufacturerData,65,2,8,0,,S
+AN2withnooffset,65,2,12,0,,uint
+AN2 temperature,65,2,14,0,cel,uint
+AN0withNoOffset ,65,2,16,0,,uint
+AN1withNoOffset,65,2,18,0,,uint
+AN0 Temperature ,65,2,20,0,cel,uint
+AN1 Temperature ,65,2,22,0,cel,uint
+CurrADC,67,2,2,0,mA,int
+Vin12ADC,67,2,6,0,mV,uint
