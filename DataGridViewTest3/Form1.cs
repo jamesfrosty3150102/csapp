@@ -29,6 +29,12 @@ namespace DataGridViewTest3
                 dataTable.Columns.Add("Bit" + i.ToString(), typeof(byte));
             }
             DGV.DataSource = dataTable;
+            for (int i = 0; i < 16; i++)
+            { 
+                DataRow row = dataTable.NewRow();
+                row[0] = i;
+                dataTable.Rows.Add(row);
+            }
 
         }
     }
