@@ -19,10 +19,17 @@ namespace delegateTest2issue
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        Thread thrStart;
+        bool abort=false;
         private void button1_Click(object sender, EventArgs e)
         {
-            Thread thrStart = new Thread(ShowMessage);
+            thrStart = new Thread(ShowMessage);
             thrStart.Start();
+            abort = false;
         }
 
         private void AddMessage(string sMessage)
@@ -40,11 +47,17 @@ namespace delegateTest2issue
 
         private void ShowMessage()
         {
-            while (true)
+            while (!abort)
             {
                 AddMessage("Thread is alive...");
                 Thread.Sleep(3000);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            abort = true;
+
         }
     }
 }
