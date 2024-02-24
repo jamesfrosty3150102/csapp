@@ -13,6 +13,7 @@ namespace delegateTest2issue
 {
     public partial class Form1 : Form
     {
+        private delegate void DelShowMessage(string sMessage);
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +27,15 @@ namespace delegateTest2issue
 
         private void AddMessage(string sMessage)
         {
-            this.textBox1.Text += sMessage + Environment.NewLine;
+            if (this.InvokeRequired) // 若非同執行緒
+            {
+                DelShowMessage del = new DelShowMessage(AddMessage); //利用委派執行
+                this.Invoke(del, sMessage);
+            }
+            else // 同執行緒
+            {
+                this.textBox1.Text += sMessage + Environment.NewLine;
+            }
         }
 
         private void ShowMessage()
